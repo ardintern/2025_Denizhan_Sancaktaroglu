@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94F69AD8-8923-410E-A4F2-AFC025A10783}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DokumantasyonProje</RootNamespace>
+    <AssemblyName>DokumantasyonProje</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\fatura_servis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\query_servis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CreditCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CreditCount.Designer.cs">
+      <DependentUpon>CreditCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CreditSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CreditSpace.Designer.cs">
+      <DependentUpon>CreditSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CustomerGbList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CustomerGbList.Designer.cs">
+      <DependentUpon>CustomerGbList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CustomerPkList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\CustomerPkList.Designer.cs">
+      <DependentUpon>CustomerPkList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\InvoiceServiceMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\InvoiceServiceMainPage.Designer.cs">
+      <DependentUpon>InvoiceServiceMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\SndInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Servisi\SndInvoice.Designer.cs">
+      <DependentUpon>SndInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\InvoiceSorguServiceMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\InvoiceSorguServiceMainPage.Designer.cs">
+      <DependentUpon>InvoiceSorguServiceMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryAppResponseOfInboxDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryAppResponseOfInboxDoc.Designer.cs">
+      <DependentUpon>queryAppResponseOfInboxDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryAppResponseOfOutboxDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryAppResponseOfOutboxDoc.Designer.cs">
+      <DependentUpon>queryAppResponseOfOutboxDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryEnvelope.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryEnvelope.Designer.cs">
+      <DependentUpon>queryEnvelope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryGbList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryGbList.Designer.cs">
+      <DependentUpon>queryGbList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDoc.Designer.cs">
+      <DependentUpon>queryInboxDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocDate.Designer.cs">
+      <DependentUpon>queryInboxDocDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocGUIDList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocGUIDList.Designer.cs">
+      <DependentUpon>queryInboxDocGUIDList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocReceivedDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryInboxDocReceivedDate.Designer.cs">
+      <DependentUpon>queryInboxDocReceivedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryLastInvoiceIdAndDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryLastInvoiceIdAndDate.Designer.cs">
+      <DependentUpon>queryLastInvoiceIdAndDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDoc.Designer.cs">
+      <DependentUpon>queryOutboxDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocDate.Designer.cs">
+      <DependentUpon>queryOutboxDocDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocGUIDList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocGUIDList.Designer.cs">
+      <DependentUpon>queryOutboxDocGUIDList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocLocalId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocLocalId.Designer.cs">
+      <DependentUpon>queryOutboxDocLocalId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocReceivedDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryOutboxDocReceivedDate.Designer.cs">
+      <DependentUpon>queryOutboxDocReceivedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryPKList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryPKList.Designer.cs">
+      <DependentUpon>queryPKList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\queryUser.Designer.cs">
+      <DependentUpon>queryUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\setTakenFromEntegrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="E-Fatura Sorgulama Servisi\setTakenFromEntegrator.Designer.cs">
+      <DependentUpon>setTakenFromEntegrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Page Structure\custom_header.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xmlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xmlForm.Designer.cs">
+      <DependentUpon>xmlForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="E-Fatura Servisi\CreditCount.resx">
+      <DependentUpon>CreditCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Servisi\CreditSpace.resx">
+      <DependentUpon>CreditSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Servisi\CustomerGbList.resx">
+      <DependentUpon>CustomerGbList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Servisi\CustomerPkList.resx">
+      <DependentUpon>CustomerPkList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Servisi\InvoiceServiceMainPage.resx">
+      <DependentUpon>InvoiceServiceMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Servisi\SndInvoice.resx">
+      <DependentUpon>SndInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\InvoiceSorguServiceMainPage.resx">
+      <DependentUpon>InvoiceSorguServiceMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryAppResponseOfInboxDoc.resx">
+      <DependentUpon>queryAppResponseOfInboxDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryAppResponseOfOutboxDoc.resx">
+      <DependentUpon>queryAppResponseOfOutboxDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryEnvelope.resx">
+      <DependentUpon>queryEnvelope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryGbList.resx">
+      <DependentUpon>queryGbList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryInboxDoc.resx">
+      <DependentUpon>queryInboxDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryInboxDocDate.resx">
+      <DependentUpon>queryInboxDocDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryInboxDocGUIDList.resx">
+      <DependentUpon>queryInboxDocGUIDList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryInboxDocReceivedDate.resx">
+      <DependentUpon>queryInboxDocReceivedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryLastInvoiceIdAndDate.resx">
+      <DependentUpon>queryLastInvoiceIdAndDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryOutboxDoc.resx">
+      <DependentUpon>queryOutboxDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryOutboxDocDate.resx">
+      <DependentUpon>queryOutboxDocDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryOutboxDocGUIDList.resx">
+      <DependentUpon>queryOutboxDocGUIDList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryOutboxDocLocalId.resx">
+      <DependentUpon>queryOutboxDocLocalId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryOutboxDocReceivedDate.resx">
+      <DependentUpon>queryOutboxDocReceivedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryPKList.resx">
+      <DependentUpon>queryPKList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\queryUser.resx">
+      <DependentUpon>queryUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="E-Fatura Sorgulama Servisi\setTakenFromEntegrator.resx">
+      <DependentUpon>setTakenFromEntegrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.addPrefixListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.cancelInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.controlApplicationResponseXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.controlInvoiceXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.CreditAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.CreditInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.DocumentQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.EntResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getCreditActionsforCustomerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getCustomerCreditCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getCustomerCreditSpaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getCustomerGBListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getCustomerPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.GetDraftDocumentPreviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getNewUUIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.GetOutboxInvoiceStatusWithLogsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getPrefixListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.getUserAliasesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.GetXsltListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.logResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.PrefixCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.ResendDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.saveToTaslakResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendApplicationResponseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendAppResponseListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendAppResponseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendInvoiceWithoutDocumentIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.sendSignedInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.SetDefaultXsltResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.setDocumentFlagResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.setPrefixStatusListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.updateInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.uploadInvoiceListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.UploadXsltResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.UserAddresInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.UserQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\DokumantasyonProje.fatura_servis.XsltListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\fatura_servis\InvoiceWS.wsdl" />
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.AttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.DocumentQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetInboxAttachmentByUuidResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetInboxAttachmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetLastInvoiceIdAndDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetNewUserGBListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetNewUserPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetUserGBListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetUserPKListInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.GetUserPKListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryAppResponseOfInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryAppResponseOfOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryArchivedInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryArchivedOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryEnvelopeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxArchivedDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentsWithDocumentDateAndSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentsWithGUIDListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentsWithReceivedDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryInboxDocumentsWithReceivedDateWithSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxArchivedDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentsWithDocumentDateAndSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentsWithDocumentDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentsWithReceivedDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentsWithReceivedDateWithSearchParamsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentsWithWithGUIDListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxDocumentWithLocalIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryOutboxResponseDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryUsersByTitleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.QueryUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.SetTakenFromEntegratorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.UserListDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.UserListInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\DokumantasyonProje.query_servis.UserQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\query_servis\QueryDocumentWS.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\fatura_servis\" />
+    <WCFMetadataStorage Include="Connected Services\query_servis\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\fatura_servis\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\fatura_servis\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\fatura_servis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\query_servis\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\query_servis\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\query_servis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,19 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model Cart
+
+
+<ul class="list-group mb-3">
+    @foreach (var item in Model.CartLines)
+    {
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+                <h6 class="my-0">@item.Product.Name (x @item.Quantity)</h6>
+            </div>
+            <span class="text-body-secondary">@item.Product.Price.ToString("c")</span>
+        </li>
+    }
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Total</span>
+            <strong>@Model.Total().ToString("c")</strong>
+        </li>
+</ul>

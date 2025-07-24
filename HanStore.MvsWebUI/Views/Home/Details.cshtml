@@ -1,0 +1,122 @@
+﻿@using HanStore.MvsWebUI.Entity;
+@model Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <link rel="stylesheet" href="~/theme/css/style.css" />
+
+    <div class="container">
+        <div class="row mt-4">
+
+                @if (string.IsNullOrEmpty(Model.Image))
+                {
+                <div class="col-md-4  mt-4">
+                    <img src="~/Upload/def.jpg" width="350" class="img-fluid" style="object-fit: contain">
+                </div>
+                }
+                else
+                {
+                <div class="col-md-4  mt-4">
+                    <img src="~/Upload/@Model.Image" width="350" class="img-fluid">
+                </div>
+                }
+
+                <div class="col-md-8 mt-5">
+
+                    <div class="col-md-8 mt-3">
+                        <h1>@Model.Name</h1>
+                    </div>
+
+                    <div class="col-md-8 d-flex">
+                        <div>
+                            4.5
+                            <i class="fa fa-star fa" aria-hidden="true"></i>
+                            <i class="fa fa-star fa" aria-hidden="true"></i>
+                            <i class="fa fa-star fa" aria-hidden="true"></i>
+                            <i class="fa fa-star fa" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o fa" aria-hidden="true"></i>
+                            356
+                        </div>
+
+                        <div id="write-review">
+                            <a class="d-block" href="#">Write a review.</a>
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="col-md-8 mt-2">
+
+                        @if (Model.IsApproved)
+                        {
+                            <span class="badge bg-success">In Stock</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Out of Stock</span>
+                        }
+
+                    </div>
+
+
+                    <div id="description" class="col-md-8 mt-2">
+                        <p>@Model.Description</p>
+                    </div>
+
+                    <div class="col-md-8 mb-2">
+                        <h3 id="product-price">@((Model.Price).ToString("c"))</h3>
+
+                        @using (Html.BeginForm("AddToCart", "Cart"))
+                        {
+                            @Html.HiddenFor(i => i.Id)
+
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart
+                        </button>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+
+
+    <div class="container">
+        <div class="bd-example">
+            <ul class="nav nav-tabs mb-3 mt-5" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications-tab-pane" type="button" role="tab" aria-controls="specifications-tab-pane" aria-selected="false" tabindex="-1">Specifications</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#comments-tab-pane" type="button" role="tab" aria-controls="comments-tab-pane" aria-selected="false" tabindex="-1">Comments</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="payment-methods-tab" data-bs-toggle="tab" data-bs-target="#payment-methods-tab-pane" type="button" role="tab" aria-controls="payment-methods-tab-pane" aria-selected="false" tabindex="-1">Payment Methods</button></li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active show" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+                @Model.Description
+                </div>
+                <div class="tab-pane fade" id="specifications-tab-pane" role="tabpanel" aria-labelledby="specifications-tab" tabindex="0">
+                    <p><b>Öne Çıkan Özellikleri:</b></p>
+                    Ekran: 6.1 inç Super Retina XDR OLED<br>
+                    Tasarım: Mat cam arka yüzey, alüminyum çerçeve<br>
+                    İşlemci: Apple A16 Bionic (önceki Pro modellerden geldi)<br>
+                    Kamera:<br>
+                    <div class="ms-3">48 MP ana kamera (ilk kez Pro dışı modele geldi)</div>
+                    <div class="ms-3">2x optik zoom desteği</div>
+                    Bağlantı: USB-C (Lightning yerine)<br>
+                    Pil: Geliştirilmiş batarya süresi<br>
+                    Dinamik Ada (Dynamic Island): Artık Pro modeller dışında ilk kez iPhone 15’te de var<br>
+                </div>
+                <div class="tab-pane fade" id="comments-tab-pane" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
+                    <p>"Telefon gerçekten tam bir performans canavarı. Kamera kalitesi inanılmaz, özellikle gece çekimlerinde farkını gösteriyor. USB-C geçişi çok iyi olmuş, artık tüm cihazlarımı aynı kabloyla şarj edebiliyorum. Biraz pahalı ama kesinlikle verdiğiniz parayı hak ediyor."</p>
+                    <p>"Titanyum kasası sayesinde telefon gerçekten çok hafif hissettiriyor. Elimde daha rahat duruyor. iPhone 13 Pro'dan geçtim, farkı ciddi şekilde hissediliyor, özellikle ekran parlaklığı ve hız konusunda."</p>
+                </div>
+                <div class="tab-pane fade" id="payment-methods-tab-pane" role="tabpanel" aria-labelledby="payment-methods-tab" tabindex="0">
+                    <p>Satın alma işleminizi güvenle tamamlamak için tercih ettiğiniz ödeme yöntemini seçin.Kredi/banka kartları, PayPal, Apple Pay ve daha fazlasını destekliyoruz. Tüm işlemler şifrelenmiş ve güvenlidir.</p>
+                </div>
+            </div>
+        </div>
+    </div>

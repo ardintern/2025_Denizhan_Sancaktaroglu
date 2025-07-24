@@ -1,0 +1,52 @@
+﻿@using HanStore.MvsWebUI.Models;
+@using HanStore.MvsWebUI.Entity;
+@model IEnumerable<UserOrderModel>
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Sipariş Detayları</h2>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>Sipariş Tarihi</th>
+                <th>Toplam Fiyat</th>
+                <th>Sipariş Durumu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="vertical-align: middle">
+                        @item.OrderNumber
+                    </td>
+                    <td style="vertical-align: middle">
+                        @item.OrderDate.ToShortDateString()
+                    </td>
+                    <td style="vertical-align: middle">
+                        @item.Total.ToString("c")
+                    </td>
+                    <td style="vertical-align: middle">
+                        @if (item.OrderState == EnumOrderState.Waiting)
+                        {
+                            <span style="color: red">Onay Bekleniyor</span>
+                        }
+                        else
+                        {
+                            <span style="color: #008000">Teslim Edildi</span>
+                        }
+                    </td>
+                    <td style="vertical-align: middle; text-align: center;">
+                        @Html.ActionLink("OrderDetail", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

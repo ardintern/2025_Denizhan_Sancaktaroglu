@@ -1,0 +1,44 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model IEnumerable<ProductModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    @if (User.IsInRole("superadmin"))
+    {
+        Layout = "~/Views/Shared/_SuperAdminLayout.cshtml";
+
+    }
+    else if (User.IsInRole("admin"))
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else if (User.IsInRole("user"))
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<link rel="stylesheet" href="~/theme/css/style.css" />
+
+<div class="jumbotron container-fluid text-white text-center"
+     style="background-image: url('/theme/img/bg5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: min(100vh, 500px);
+            padding-top: 150px;
+            padding-bottom: 150px;">
+
+</div>
+
+<div class="container container-fluid pb-5 mt-5">
+    <div id="index-title">
+        Öne Çıkan Ürünler
+    </div>
+    <br />
+
+    @Html.Partial("_ProductList", Model)
+
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model HanStore.MvsWebUI.Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminPanelNavbar.cshtml";
+}
+
+<div class="container mt-5">
+
+    <h2>Ürünü silmek istediğine emin misin?</h2>
+    <hr />
+
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            $ @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        @if (!string.IsNullOrEmpty(Model.Image))
+        {
+            <dd>
+                <img src="/Upload/@Model.Image" width="200" />
+            </dd>
+        }
+        else
+        {
+            <dd>
+                <img src="/Upload/def.jpg" width="200" />
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsApproved)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Listeye geri dön", "Index", null, new { @class = "btn btn-warning ms-2" })
+        </div>
+    }
+</div>
+</div>

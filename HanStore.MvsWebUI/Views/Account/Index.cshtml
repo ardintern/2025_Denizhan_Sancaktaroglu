@@ -1,0 +1,123 @@
+﻿@using HanStore.MvsWebUI.Models;
+@using HanStore.MvsWebUI.Entity;
+@model IEnumerable<UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    body {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .section-title {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+    }
+
+    .btn-custom {
+        background-color: #f0f0f0;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+
+        .btn-custom:hover {
+            background-color: #e0e0e0;
+        }
+
+    .btn-outline-dark:hover {
+        background-color: #f8f9fa;
+        color: #000;
+    }
+
+    table td, table th {
+        vertical-align: middle;
+    }
+
+    .table thead th {
+        background-color: #f8f8f8;
+    }
+</style>
+
+<div class="container-fluid mt-4 px-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="section-title">Profilim</h2>
+        <a href="/Orders/MyOrders" class="btn btn-custom btn-sm">📦 Siparişlerim</a>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-3 text-center">
+            <img src="~/images/user.png" alt="Profil Fotoğrafı" class="profile-img mb-2">
+            <p class="text-muted">@User.Identity.Name</p>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row mb-2">
+                <label class="col-sm-3 fw-bold">Ad Soyad:</label>
+                <div class="col-sm-9">Denizhan Sancaktaroğlu</div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 fw-bold">E-posta:</label>
+                <div class="col-sm-9">denizhan@example.com</div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 fw-bold">Telefon:</label>
+                <div class="col-sm-9">+90 555 123 4567</div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 fw-bold">Adres:</label>
+                <div class="col-sm-9">İstanbul, Türkiye</div>
+            </div>
+
+            <div class="mt-3">
+                <a href="/Account/Edit" class="btn btn-outline-dark btn-sm">Profili Düzenle</a>
+                <a href="/Account/ChangePassword" class="btn btn-outline-secondary btn-sm">Şifre Değiştir</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h4>Son Siparişler</h4>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tarih</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                    <th>Detay</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1001</td>
+                    <td>10.07.2025</td>
+                    <td>₺245,00</td>
+                    <td><span class="badge bg-success text-white">Teslim Edildi</span></td>
+                    <td><a href="/Orders/Details/1001" class="btn btn-sm btn-outline-dark">Detay</a></td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>08.07.2025</td>
+                    <td>₺89,99</td>
+                    <td><span class="badge bg-warning text-dark">Hazırlanıyor</span></td>
+                    <td><a href="/Orders/Details/1002" class="btn btn-sm btn-outline-dark">Detay</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

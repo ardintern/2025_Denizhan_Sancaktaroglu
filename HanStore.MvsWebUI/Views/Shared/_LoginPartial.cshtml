@@ -1,0 +1,60 @@
+﻿<link rel="stylesheet" href="~/theme/css/style.css" />
+
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    @if (Request.IsAuthenticated)
+    {
+        <!-- Kullanıcı Dropdown -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @User.Identity.Name
+        </a>
+        @if (User.IsInRole("superadmin") || User.IsInRole("admin"))
+        {
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href=@Url.Action("Index", "Product")>Yönetim Paneli</a></li>
+                <li><hr class="dropdown-divider" /></li>    
+                <li><a class="dropdown-item" href="/Account">Profil</a></li>
+                <li><a class="dropdown-item" href="/Account/Order">Siparişlerim</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/Account/Logout">Çıkış Yap</a></li>
+            </ul>
+        }
+        else
+        {
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="/Account">Profil</a></li>
+                <li><a class="dropdown-item" href="/Account/Order">Siparişlerim</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/Account/Logout">Çıkış Yap</a></li>
+            </ul>
+        }
+    </li>
+    }
+    else
+    {
+        <!-- Giriş ve Kayıt Linkleri -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle @(ViewContext.RouteData.Values["action"]?.ToString() == "Login" || ViewContext.RouteData.Values["action"]?.ToString() == "Register" ? "active" : "")"
+       href="#" id="authDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <h6 style="text-align: center">Giriş Yap</h6>
+        <small>veya Kayıt Ol</small>
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="authDropdown">
+        <li>
+            <a class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Login" ? "active" : "")" href="/Account/Login">
+                Giriş Yap
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Register" ? "active" : "")" href="/Account/Register">
+                Hesap Oluştur
+            </a>
+        </li>
+    </ul>
+
+</li>
+
+    }
+</ul>
+

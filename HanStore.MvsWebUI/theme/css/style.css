@@ -1,0 +1,108 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    
+}
+
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item:active {
+    color: #fff; /* Normal durumda Beyaz yazı */
+    background-color: #222; /* Koyu arka plan */
+    border-radius: 0.375rem;
+}
+
+    /* Tıklandığında veya focus olduğunda yazı beyaz olsun */
+    .dropdown-menu .dropdown-item.active:focus,
+    .dropdown-menu .dropdown-item.active:hover,
+    .dropdown-menu .dropdown-item:active:focus,
+    .dropdown-menu .dropdown-item:active:hover { /* gri yazı */
+        */ color: #bbb;
+        background-color: #111; /* Daha koyu arka plan */
+    }
+
+
+.form-control[readonly]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: initial !important;
+}
+
+#cart-icon
+{
+    font-size: 18px;
+}
+
+#getcategory-button
+{
+    background-color: lightgrey;
+    border: none;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#index-title
+{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.bg-primary
+{
+    font-size: 14px;
+}
+
+#description
+{
+    font-size: 18px;
+}
+
+
+.rounded-custom
+{
+    border-radius: 12px;
+}
+
+.card-title
+{
+
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+#write-review
+{
+    margin-left: 50px;
+}
+
+#product-price
+{
+    font-size: 25px;
+}
+
+#category-name {
+    margin-left: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Okların boyutunu büyüt */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 40px; /* varsayılan 30px civarı, ihtiyaca göre değiştir */
+    height: 40px;
+    background-size: 40px 40px; /* simgeyi büyüt */
+}
+
+#btn-ad
+{
+    opacity: 1;
+}
+
+main {
+    flex: 1; /* Boşluğu ana içerik kaplasın */
+}

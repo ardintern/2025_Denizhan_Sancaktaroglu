@@ -1,0 +1,223 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model ShippingDetails
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<link rel="stylesheet" href="~/theme/css/style.css" />
+
+<style>
+    /* Form genel hata kutusu */
+    .validation-summary-errors {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    /* Alan bazlı hata mesajı */
+    .field-validation-error {
+        color: #dc3545;
+        font-size: 0.9em;
+        padding: 0;
+        margin: 0;
+        display: inline; /* Satır içi olacak, alta düşmeyecek */
+        vertical-align: middle;
+    }
+
+    /* Geçerli alan (isteğe bağlı) */
+    .input-validation-valid {
+        border-color: #28a745 !important;
+    }
+
+    /* Geçersiz alan */
+    .input-validation-error {
+        border-color: #dc3545 !important;
+        background-color: #fff5f5;
+    }
+
+    /* Label ile input arası hizalama */
+    .form-group label {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+</style>
+
+<body class="bg-body-tertiary">
+    <div class="container">
+        <main>
+            <!-- Başlık -->
+            <div class="py-5 text-center">
+                <h1 class="h2">Sipariş Bilgileri</h1>
+
+            </div>
+
+            @using (Html.BeginForm())
+            {
+
+                if (ViewBag.UrunYokError != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.UrunYokError
+                    </div>
+                }
+
+                <div class="row g-5">
+
+                    <!-- Sağ Kolon: Sepet -->
+                    <div class="col-md-5 col-lg-4 order-md-last">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Sepetiniz</span>
+                        </h4>
+                        
+                        @Html.Partial("_CheckoutCart", Model.Cart)
+
+
+                    </div>
+
+                    <!-- Sol Kolon: Form -->
+                    <div class="col-md-7 col-lg-8">
+                        <h4 class="mb-3">Fatura Adresi</h4>
+
+                        <div class="row g-3">
+                            <!-- Ad -->
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                @Html.ValidationMessageFor(Model => Model.Firstname, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(i => i.Firstname, new { @class = "form-control" })
+                            </div>
+
+                            <!-- Soyad -->
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                @Html.TextBoxFor(i => i.Surname, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(Model => Model.Surname, "", new { @class = "text-danger" })
+                            </div>
+
+                            <!-- Kullanıcı adı -->
+                            <div class="col-12">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"></span>
+                                    @Html.ValidationMessageFor(i => i.Username)
+                                    @Html.TextBox("Username", User.Identity.Name, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <!-- Adres Başlığı -->
+                            <div class="col-12">
+                                <label for="address" class="form-label">Adres Başlığı</label>
+                                @Html.ValidationMessageFor(Model => Model.AdresBasligi, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(i => i.AdresBasligi, new { @class = "form-control" })
+                            </div>
+
+                            <div class="row">
+                                <!-- Country -->
+                                <div class="col-md-3">
+                                    <label for="country" class="form-label">Şehir</label>
+                                    @Html.ValidationMessageFor(Model => Model.Adres, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(i => i.Sehir, new { @class = "form-control" })
+                                </div>
+
+                                <!-- State -->
+                                <div class="col-md-3">
+                                    <label for="state" class="form-label">Semt</label>
+                                    @Html.ValidationMessageFor(Model => Model.Semt, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(i => i.Semt, new { @class = "form-control" })
+                                </div>
+
+                                <!-- State -->
+
+                                <div class="col-md-3">
+                                    <label for="zip" class="form-label">Mahalle</label>
+                                    @Html.ValidationMessageFor(Model => Model.Mahalle, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(i => i.Mahalle, new { @class = "form-control" })
+                                </div>
+
+                                <!-- Zip -->
+                                <div class="col-md-3">
+                                    <label for="zip" class="form-label">Zip</label>
+                                    @Html.ValidationMessageFor(Model => Model.PostKodu, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(i => i.PostKodu, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <!-- Adres -->
+                            <div class="col-12">
+                                <label for="adres" class="form-label">Adres</label>
+                                @Html.ValidationMessageFor(Model => Model.Adres, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(i => i.Adres, new { @class = "form-control" })
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Ödeme -->
+                            @*<h4 class="mb-3">Payment</h4>
+        <div class="my-3">
+            <div class="form-check">
+                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check">
+                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check">
+                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
+        </div>
+
+        <div class="row gy-3">
+            <div class="col-md-6">
+                <label for="cc-name" class="form-label">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" required>
+                <small class="text-body-secondary">Full name as displayed on card</small>
+                <div class="invalid-feedback">Name on card is required</div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="cc-number" class="form-label">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" required>
+                <div class="invalid-feedback">Credit card number is required</div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" required>
+                <div class="invalid-feedback">Expiration date required</div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" required>
+                <div class="invalid-feedback">Security code required</div>
+            </div>
+        </div>*@
+
+                            @*<hr class="my-4">*@
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-success btn-lg w-100" type="submit">Siparişi Tamamla</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="/Cart" class="btn btn-secondary btn-lg w-100" type="button">Sepete Geri Dön</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </main>
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>

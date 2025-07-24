@@ -1,0 +1,56 @@
+﻿@using HanStore.MvsWebUI.Models;
+@using HanStore.MvsWebUI.Entity;
+@model IEnumerable<AdminOrderModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminPanelNavbar.cshtml";
+}
+
+<div class="container mt-5">
+
+    <h2>Sipariş Listesi</h2>
+    <hr />
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Sipariş Id</th>
+                <th>Sipariş Numarası</th>
+                <th>Sipariş Tarihi</th>
+                <th>Sipariş Durumu</th>
+                <th>Ürün Adedi</th>
+                <th>Toplam Fiyatı</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderNumber</td>
+                    <td>@item.OrderDate</td>
+                    <td>
+                        @if (item.OrderState == EnumOrderState.Waiting)
+                         {
+                            <span style="color: red">@item.OrderState</span>
+                         }
+                         else 
+                         {
+                            <span style="color: #008000">@item.OrderState</span>  
+                         }
+                    </td>
+                    <td>@item.Count</td>
+                    <td>@item.Total.ToString("c")</td>
+                    <td>
+                        @Html.ActionLink("Detaylar", "Details", new {id = item.Id}, new {@class = "btn btn-primary btn-sm"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+

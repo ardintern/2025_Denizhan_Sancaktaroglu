@@ -1,0 +1,102 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model Cart
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Model.CartLines.Any())
+{
+    <div class="container mt-5">
+
+        <h2 class="mb-5">Sepet</h2>
+        <hr />
+
+
+
+        <table class="table">
+            <thead>
+
+
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Ürün Adı</th>
+                    <th>Ürün Fiyatı</th>
+                    <th>Ürün Adedi</th>
+                    <th>Toplam Fiyat</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.CartLines)
+                {
+                    <tr>
+                        <td style="vertical-align: middle; font-size: 18px; hori">
+                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            {
+                                @Html.Hidden("Id", item.Product.Id)
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fa fa-trash fa-3" aria-hidden="true"></i>
+                                    Sil
+                                </button>
+
+                            }
+                        </td>
+
+                        <td style="vertical-align: middle">
+                            <img src="/Upload/@item.Product.Image" style="width: 90px" />
+                        </td>
+
+                        <td style="vertical-align: middle">
+                            @item.Product.Name
+                        </td>
+
+                        <td style="vertical-align: middle">
+                            @((item.Product.Price).ToString("c"))
+                        </td>
+
+                        <td style="vertical-align: middle">
+                            @item.Quantity
+                        </td>
+
+                        <td style="vertical-align: middle">
+                            <span>@((item.Quantity * item.Product.Price).ToString("c"))</span>
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="5"></td>
+
+                    <td>
+                        @Model.Total().ToString("c")
+                    </td>
+
+                    
+                </tr>
+            </tfoot>
+
+        </table>
+
+        <div class="me-4" style="text-align: right">
+        <a class="btn btn-secondary" href="/Home/List">Alışverişe devam et</a>
+        <a class="btn btn-success" href="/Cart/Checkout">Siparişi tamamla</a>
+        </div>
+
+    </div>
+}
+
+else
+{
+<div class="container mt-5">
+    <h2 class="mb-5">Sepetinizde ürün bulunamadı.</h2>
+    <hr />
+</div>
+}

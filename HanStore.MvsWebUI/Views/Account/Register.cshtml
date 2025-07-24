@@ -1,0 +1,77 @@
+﻿@using HanStore.MvsWebUI.Models
+@model Register
+
+@{
+    ViewBag.Title = "title";
+}
+
+<body class="bg-body-tertiary">
+
+    <div class="d-flex justify-content-center align-items-center" style="height: calc(100vh - 56px);">
+        <div class="form-signin" style="max-width: 500px; width: 100%;">
+            <h1 class="h3 mb-3 fw-normal text-center">Hesap Oluştur</h1>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <!-- Ad -->
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", id = "Name", placeholder = "Ad" })
+                    @Html.LabelFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Soyad -->
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", id = "Surname", placeholder = "Soyad" })
+                    @Html.LabelFor(model => model.Surname)
+                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Kullanıcı Adı -->
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", id = "UserName", placeholder = "Kullanıcı Adı" })
+                    @Html.LabelFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- E-posta -->
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", id = "Email", placeholder = "E-posta" })
+                    @Html.LabelFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Şifre -->
+                <div class="form-floating mb-3">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", id = "Password", placeholder = "Şifre" })
+                    @Html.LabelFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Şifre Tekrar -->
+                <div class="form-floating mb-3">
+                    @Html.PasswordFor(model => model.RePassword, new { @class = "form-control", id = "RePassword", placeholder = "Şifre Tekrar" })
+                    @Html.LabelFor(model => model.RePassword)
+                    @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Butonlar -->
+                <div class="d-flex justify-content-between">
+                    <input type="submit" value="Hesap Oluştur" class="btn btn-success w-50 me-2" />
+                    <a href="@Url.Action("Login", "Account")" class="btn btn-secondary w-50">Giriş Yap</a>
+                </div>
+
+                <p class="mt-5 mb-3 text-body-secondary text-center">©2025 HanStore</p>
+            }
+        </div>
+    </div>
+
+</body>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

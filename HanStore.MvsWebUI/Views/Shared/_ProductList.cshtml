@@ -1,0 +1,37 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model IEnumerable<ProductModel>
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="padding-inline: 2em">
+    @foreach (var urun in Model)
+    {
+        <div class="col">
+            <div class="card h-100 border-1 shadow-sm rounded-3 p-2" style="background-color: #fff;">
+
+                <!-- Ürün görseli -->
+                <a href="/Home/Details/@urun.Id" class="d-block text-center">
+                    <img src="~/Upload/@urun.Image"
+                         class="card-img-top img-fluid rounded"
+                         alt="@urun.Name"
+                         style="max-height: 150px; max-width: 100%; object-fit: contain; margin-top: 15px" />
+                </a>
+
+                <!-- Ürün adı -->
+                <div class="card-body text-center px-2 py-3">
+                    <h5 class="card-title mt-4" style="font-size: 1rem;">
+                        <a href="/Home/Details/@urun.Id" style="text-decoration: none; color: #333;">
+                            @urun.Name
+                        </a>
+                    </h5>
+                </div>
+
+                <!-- Fiyat -->
+                <div class="card-footer bg-white border-0 text-center pb-3">
+                    <span class="fw-bold" style="font-size: 1.2rem;">
+                        @urun.Price.ToString("c")
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

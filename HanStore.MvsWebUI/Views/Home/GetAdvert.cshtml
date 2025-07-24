@@ -1,0 +1,66 @@
+﻿@using HanStore.MvsWebUI.Models;
+@model IEnumerable<ProductModel>
+
+
+
+<div id="myCarousel" class="container carousel slide mb-5 mt-5" data-bs-ride="carousel" style="border: 2px solid rgba(0, 0, 0, 0.2); border-radius: 10px;">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+        @{
+            int index = 0;
+        }
+        @foreach (var urun in Model)
+        {
+            <button type="button"
+                    data-bs-target="#myCarousel"
+                    data-bs-slide-to="@index"
+                    class="@(index == 0 ? "active" : "")"
+                    aria-current="@(index == 0 ? "true" : "false")"
+                    aria-label="Slide @(index + 1)">
+            </button>
+            index++;
+        }
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner rounded shadow-sm">
+        @{
+            index = 0;
+        }
+        @foreach (var urun in Model)
+        {
+            <div class="carousel-item @(index == 0 ? "active" : "")">
+                <a href="/Home/Details/@urun.Id" class="d-block">
+                    <img src="~/Upload/@urun.Image" class="d-block w-100" alt="@urun.Name"
+                         style="height: 400px; object-fit: contain; background-color: #f8f9fa;" />
+                </a>
+
+                <div class="carousel-caption bg-opacity-50 rounded p-3 mx-auto" style="max-width: 350px;">
+                    <a href="/Home/Details/@urun.Id" class="text-white text-decoration-none">
+                        <h5 class="mb-1" style="color: white; font-size: 25px; text-shadow: 0 0 3px black, 0 0 6px rgba(0, 0, 0, 0.6); ">@urun.Name</h5>
+                        <small style="color: white; font-size: 22px; text-shadow: 0 0 3px black, 0 0 6px rgba(0, 0, 0, 0.6)">
+                            İncelemek için tıkla
+                        </small>
+
+                    </a>
+                </div>
+            </div>
+            index++;
+        }
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev"
+            style="width: 60px; height: 60px; border-radius: 50%; background-color: rgba(0,0,0,0.5); top: 50%; transform: translateY(-50%); left: 20px;">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Önceki</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next"
+            style="width: 60px; height: 60px; border-radius: 50%; background-color: rgba(0,0,0,0.5); top: 50%; transform: translateY(-50%); right: 20px;">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sonraki</span>
+    </button>
+
+</div>

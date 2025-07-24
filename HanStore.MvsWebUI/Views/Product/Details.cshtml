@@ -1,0 +1,130 @@
+﻿@model HanStore.MvsWebUI.Entity.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminPanelNavbar.cshtml";
+}
+
+<div class="container mt-5">
+
+    <h2>Ürün Detayları</h2>
+    <hr />
+
+    <div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                $ @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <dd>
+                    <img src="/Upload/@Model.Image" width="200" />
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    <img src="/Upload/def.jpg" width="200" />
+                </dd>
+            }
+            <dt>
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </dt>
+
+            @if (Model.IsApproved)
+            {
+                <dd>
+                    <i class="fa fa-check-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    <i class="fa fa-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsHome)
+            </dt>
+
+            @if (Model.IsHome)
+            {
+                <dd>
+                    <i class="fa fa-check-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    <i class="fa fa-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAd)
+            </dt>
+
+            @if (Model.IsAd)
+            {
+                <dd>
+                    <i class="fa fa-check-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    <i class="fa fa-square-o fa-1" aria-hidden="true"></i>
+                </dd>
+            }
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Listeye geri dön", "Index", null, new { @class = "btn btn-warning ms-2" })
+    </p>
+
+</div>

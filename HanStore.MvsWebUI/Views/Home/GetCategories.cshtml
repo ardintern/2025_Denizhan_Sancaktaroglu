@@ -1,0 +1,57 @@
+﻿@using HanStore.MvsWebUI.Entity;
+@model IEnumerable<Category>
+
+@{
+    var SelectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+
+<ul class="list-group list-group-vertical">
+
+    @if (SelectedCategory == null)
+    {
+        <a id="getcategory-button" class="list-group-item active" style="color: black; text-decoration: none;" href="/Home/List/">
+            <i class="fa fa-caret-right fa" aria-hidden="true"></i>
+            Tüm Kategoriler
+        </a>
+    }
+    else
+    {
+        <a class="list-group-item" style="color: black; text-decoration: none" href="/Home/List/">
+            <i class="fa fa-caret-right fa" aria-hidden="true"></i>
+            Tüm Kategoriler
+        </a>
+    }
+
+
+
+    @foreach (var urun in Model)
+    {
+        if (SelectedCategory != null)
+        {
+            if (urun.Id == int.Parse(SelectedCategory.ToString()))
+            {
+                <a id="getcategory-button" href="/Home/List/@urun.Id" class="list-group-item active list-group-item-action" style="color: black; text-decoration: none;">
+                    <i class="fa fa-caret-right fa" aria-hidden="true"></i>
+                    @urun.Name
+                </a>
+            }
+            else
+            {
+                <a href="/Home/List/@urun.Id" class="list-group-item list-group-item-action" style="color: black; text-decoration: none;">
+                    <i class="fa fa-caret-right fa" aria-hidden="true"></i>
+                    @urun.Name
+                </a>
+            }
+        }
+        else
+        {
+
+            <a href="/Home/List/@urun.Id" class="list-group-item list-group-item-action" style="color: black; text-decoration: none;">
+                <i class="fa fa-caret-right fa" aria-hidden="true"></i>
+                @urun.Name
+            </a>
+        }
+    }
+
+</ul>
